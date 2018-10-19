@@ -14,7 +14,9 @@ var userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+
+    versionKey: false
 });
 
 var User = module.exports = mongoose.model('user', userSchema);
