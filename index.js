@@ -13,6 +13,11 @@ app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost/expressauth');
 var db = mongoose.connection;
 
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log("successfully connected to db");
+});
+
 var port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => res.send('Hello World with Express'));

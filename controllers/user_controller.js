@@ -3,6 +3,7 @@ User = require('../models/user_model.js');
 exports.index = function (req, res) {
     User.get(function (err, users) {
         if (err) {
+            console.log("error")
             res.json({
                 status: "error",
                 message: err
